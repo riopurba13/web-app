@@ -4,7 +4,7 @@ import numpy as np
 import os
 import cv2
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './static/uploads/'
 model = load_model('Belimbing wuluh_dan_Nangka.h5')
 
@@ -41,5 +41,5 @@ def send_uploaded_image(filename=''):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
-if '_name_' == '_main_':
+if '__name__' == '__main__':
     app.run(debug=True)
