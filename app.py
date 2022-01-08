@@ -5,22 +5,22 @@ import os
 import cv2
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = './static/uploads/'
-model = load_model('Belimbing wuluh_dan_Nangka.h5')
+# app.config['UPLOAD_FOLDER'] = './static/uploads/'
+# model = load_model('Belimbing wuluh_dan_Nangka.h5')
 
-class_dict = {0: 'Belimbing wuluh', 1: 'Nangka'}
+# class_dict = {0: 'Belimbing wuluh', 1: 'Nangka'}
 
 
-def predict_label(img_path):
-    query = cv2.imread(img_path)
-    output = query.copy()
-    query = cv2.resize(query, (32, 32))
-    q = []
-    q.append(query)
-    q = np.array(q, dtype='float') / 255.0
-    q_pred = model.predict(q)
-    predicted_bit = int(q_pred)
-    return class_dict[predicted_bit]
+# def predict_label(img_path):
+#     query = cv2.imread(img_path)
+#     output = query.copy()
+#     query = cv2.resize(query, (32, 32))
+#     q = []
+#     q.append(query)
+#     q = np.array(q, dtype='float') / 255.0
+#     q_pred = model.predict(q)
+#     predicted_bit = int(q_pred)
+#     return class_dict[predicted_bit]
 
 @app.route('/')
 def index():
@@ -39,9 +39,9 @@ def index():
 #     return render_template('index.html')
 
 
-@app.route('/display/<filename>')
-def send_uploaded_image(filename=''):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+# @app.route('/display/<filename>')
+# def send_uploaded_image(filename=''):
+#     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
 if '__name__' == '__main__':
