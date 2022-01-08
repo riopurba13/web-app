@@ -22,18 +22,21 @@ def predict_label(img_path):
     predicted_bit = int(q_pred)
     return class_dict[predicted_bit]
 
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    if request.method == 'POST':
-        if request.files:
-            image = request.files['image']
-            img_path = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
-            image.save(img_path)
-            prediction = predict_label(img_path)
-            return render_template('index.html', uploaded_image=image.filename, prediction=prediction)
+   return render_template('index.html')
 
-    return render_template('index.html')
+# @app.route('/', methods=['GET', 'POST'])
+# def index():
+#     if request.method == 'POST':
+#         if request.files:
+#             image = request.files['image']
+#             img_path = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
+#             image.save(img_path)
+#             prediction = predict_label(img_path)
+#             return render_template('index.html', uploaded_image=image.filename, prediction=prediction)
+
+#     return render_template('index.html')
 
 
 @app.route('/display/<filename>')
