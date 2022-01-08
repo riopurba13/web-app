@@ -1,1 +1,1 @@
-echo "web: python main:app" > Procfile
+web: python main.py runserver
