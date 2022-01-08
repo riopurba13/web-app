@@ -4,7 +4,7 @@ import numpy as np
 import os
 import cv2
 
-app = Flask(__name__)
+app = Flask(_name_)
 app.config['UPLOAD_FOLDER'] = './static/uploads/'
 model = load_model('Belimbing wuluh_dan_Nangka.h5')
 
