@@ -1,1 +1,1 @@
-echo "web: python app:app" > Procfile
+echo "web: python main:app" > Procfile
