@@ -3,9 +3,10 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import os
 import cv2
+from os.path import join, dirname, realpath
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = './static/uploads/'
+app.config['UPLOAD_FOLDER'] = join(dirname(realpath(__file__)), 'static/uploads/..')
 model = load_model('Belimbing wuluh_dan_Nangka.h5')
 
 class_dict = {0: 'Belimbing wuluh', 1: 'Nangka'}
